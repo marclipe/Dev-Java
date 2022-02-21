@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication7;
 
+import java.util.Scanner;
 /**
  *
- * @author marco
+ * @author aluno04aluno
  */
 public class JavaApplication7 {
 
@@ -16,6 +12,16 @@ public class JavaApplication7 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+     int produto,desconto;
+     Scanner input = new Scanner(System.in);
+     System.out.println("Digite o valor do produto:");
+     produto=input.nextFloat();
+      
+     desconto=produto*9/100;
+  
+        System.out.printf("\\ndesconto= %d",desconto);
+        
     }
     
 }
