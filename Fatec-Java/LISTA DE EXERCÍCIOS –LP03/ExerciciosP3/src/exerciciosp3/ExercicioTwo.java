@@ -22,6 +22,7 @@ public class ExercicioTwo {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "[ERRO] Digite apenas números!!");
+            System.exit(0);
         } finally {
             for (int i = 1; i <= n; i++) {
                 M = M + String.valueOf("(" + i + "):" + ExercicioTwo.fibo(i) + " ");

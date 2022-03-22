@@ -4,27 +4,31 @@ import javax.swing.JOptionPane;
 
 public class ExercicioFive {
 
-    static int inicio, fim;
+    static double limite, salto;
 
     public static void main(String[] args) {
-        int salto ; 
+        
+        String mensagem = ""; 
+        
         try {
-            String Inicio = JOptionPane.showInputDialog("Digite o limite inferior: ");
-            inicio = Integer.parseInt(Inicio);
+            String Limite = JOptionPane.showInputDialog(null, "Digite o limite: ");
+            limite = Double.parseDouble(Limite);
+            Limite = Limite.replace(",", ".");
 
-            String Fim = JOptionPane.showInputDialog("Digite o limite superior: ");
-            fim = Integer.parseInt(Fim);
-            
-            String Salto = JOptionPane.showInputDialog("Digite o tamanho do salto: ");
-            salto = Integer.parseInt(Salto); 
+            String Salto = JOptionPane.showInputDialog("Digite o valor do salto: ");
+            salto = Double.parseDouble(Salto);
+            Limite = Limite.replace(",", ".");
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "[ERRO] Digite apenas números!!");
             System.exit(0);
         } finally {
-            for (int i = inicio; i <= fim; i++) {
-            
+            for (int i = 0; i <= limite; i += salto) {
+
+                mensagem = mensagem + String.valueOf(i + "   ");
+
             }
+            JOptionPane.showMessageDialog(null, mensagem);
         }
     }
 }

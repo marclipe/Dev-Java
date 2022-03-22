@@ -30,6 +30,7 @@ public class ExercicioThree {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "[ERRO] Digite apenas números!!");
+            System.exit(0);
         }
     }
 }
