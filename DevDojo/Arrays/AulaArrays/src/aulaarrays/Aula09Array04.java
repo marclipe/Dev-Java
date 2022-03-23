@@ -13,7 +13,7 @@ public class Aula09Array04 {
             System.out.println(num);
         }
         
-        int num = numero3[0]; 
+        int num = numeros3[0]; 
         System.out.println(num);
         num = numeros3[1]; 
         System.out.println(num);
