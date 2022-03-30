@@ -50,8 +50,7 @@ public class ExercicioSeven {
             JOptionPane.showMessageDialog(null, "Este campo não pode ser vazio!");
 
         } finally {
-            int resp = JOptionPane.showConfirmDialog(null, "Deseja Continuar?",
-                    "CONFIRMAÇÃO", 2, 3, null);
+            int resp = JOptionPane.showConfirmDialog(null, "Deseja Continuar?", "CONFIRMAÇÃO", 2, 3, null);
 
             if (resp == 0) {
                 comeco();
