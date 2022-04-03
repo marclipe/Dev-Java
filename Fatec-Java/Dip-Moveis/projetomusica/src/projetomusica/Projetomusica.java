@@ -1,10 +1,16 @@
 package projetomusica;
 
+import projetomusica.view.ManterUsuario;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Projetomusica {
 
+    /**
+     * @param args the command line arguments
+     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException
+     */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         if (ManterUsuario.valida()) {
             menu();
@@ -27,16 +33,16 @@ public class Projetomusica {
                 ManterUsuario.menu();
                 break;
             case 2:
-                ManterPessoaFisica.menu();
+                //ManterPessoaFisica.menu();
                 break;
             case 3:
-                ManterEndereco.menu();
+                //ManterLogradouro.menu();
                 break;
             case 4:
                 //ManterUsuarioPessoa.menu();
                 break;
             case 5:
-                //ManterPessoaEndereco.menu();
+                //ManterPessoaLogradouro.menu();
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Erro opcao invalida");
