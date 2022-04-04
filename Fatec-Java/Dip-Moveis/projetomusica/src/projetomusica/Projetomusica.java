@@ -1,6 +1,7 @@
 package projetomusica;
 
 import projetomusica.view.ManterUsuario;
+import projetomusica.view.ManterInstrumentos; 
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -33,7 +34,7 @@ public class Projetomusica {
                 ManterUsuario.menu();
                 break;
             case 2:
-                //ManterPessoaFisica.menu();
+                ManterInstrumentos.menu();
                 break;
             case 3:
                 //ManterLogradouro.menu();
