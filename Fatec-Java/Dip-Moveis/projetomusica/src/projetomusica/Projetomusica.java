@@ -21,7 +21,7 @@ public class Projetomusica {
     }
 
     public static void menu() throws SQLException, ClassNotFoundException {
-        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Usuario \n 2 - Pessoa \n 3 - Endereco \n 4 - UsuarioPessoa \n 5 - PessoaEndereco"));
+        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Usuario \n 2 - Cliente \n 3 - Instrumentos \n 4 - Acessorios \n 5 - PessoaEndereco"));
         switch (operacao) {
             case 0:
                 int sair = JOptionPane.showConfirmDialog(null, "Deseja Sair");
@@ -34,10 +34,10 @@ public class Projetomusica {
                 ManterUsuario.menu();
                 break;
             case 2:
-                ManterInstrumentos.menu();
+                //ManterClientes.menu();
                 break;
             case 3:
-                //ManterLogradouro.menu();
+                ManterInstrumentos.menu();
                 break;
             case 4:
                 //ManterUsuarioPessoa.menu();

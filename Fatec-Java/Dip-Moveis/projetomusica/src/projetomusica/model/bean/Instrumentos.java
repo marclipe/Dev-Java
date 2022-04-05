@@ -4,27 +4,31 @@ public class Instrumentos {
 
     private int id;
     private String nome;
-    private String valor;
+    private double valor;
     private String tipo;
 
     public Instrumentos(int id) {
         this.id = id;
     }
+    
+    public Instrumentos(String nome) {
+        this.nome = nome;
+    }
 
-    public Instrumentos(String nome, String valor, String tipo) {
+    public Instrumentos(String nome, double valor, String tipo) {
         this.nome = nome;
         this.valor = valor;
         this.tipo = tipo;
     }
 
-    public Instrumentos(int id, String nome, String valor, String tipo) {
+    public Instrumentos(int id, String nome, double valor, String tipo) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;
         this.tipo = tipo;
     }
 
-    public Instrumentos(String login, String senha) {
+    public Instrumentos(int aInt, String string, String string0, String string1, String string2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -40,18 +44,17 @@ public class Instrumentos {
         return nome;
     }
 
-    public void setLogin(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
-
 
     public String getTipo() {
         return tipo;
@@ -61,16 +64,12 @@ public class Instrumentos {
         this.tipo = tipo;
     }
 
+    @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", valor=" + valor + ", tipo=" + tipo + '}';
+        return "Instrumento{" + "id=" + id + ", nome=" + nome + ", valor=" + valor + ", tipo=" + tipo + '}';
     }
 
-    public Object getLogin() {
+    public String getLogin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public Object getSenha() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

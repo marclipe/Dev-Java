@@ -35,7 +35,8 @@ public class ControllerInstrumentos {
         return daoIns.inserir(ins);
     }
 
-    public boolean validar(Instrumentos instEntrada) throws SQLException, ClassNotFoundException {
+    //Validar só usuario
+    /*public boolean validar(Instrumentos instEntrada) throws SQLException, ClassNotFoundException {
         boolean validado = false;
         daoIns = new DaoInstrumentos();
         Instrumentos instSaida = daoIns.validar(instEntrada);
@@ -45,7 +46,7 @@ public class ControllerInstrumentos {
             }
         }
         return validado;
-    }
+    }*/
 
     public List<Instrumentos> listar(Usuario instEntrada) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

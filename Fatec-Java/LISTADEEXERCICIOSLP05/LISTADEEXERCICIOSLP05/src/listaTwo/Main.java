@@ -1,4 +1,4 @@
-package lista_de_extwo;
+package listaTwo;
 
 import javax.swing.JOptionPane;
 

@@ -1,4 +1,4 @@
-package lista_de_exercicios_lp05;
+package listadeexercicioslp05;
 
 import javax.swing.JOptionPane;
 
