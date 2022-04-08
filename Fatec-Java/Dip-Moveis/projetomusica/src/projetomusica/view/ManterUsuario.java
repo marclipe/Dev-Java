@@ -24,7 +24,8 @@ public class ManterUsuario {
         String senha = JOptionPane.showInputDialog("Senha");
         String status = JOptionPane.showInputDialog("Status");
         String tipo = JOptionPane.showInputDialog("Tipo");
-        Usuario usuEntrada = new Usuario(id, login, senha, status, tipo);
+        int id_clientes = Integer.parseInt(JOptionPane.showInputDialog("ID Clientes"));
+        Usuario usuEntrada = new Usuario(id, login, senha, status, tipo, id_clientes);
         contUsu = new ControllerUsuario();
         Usuario usuSaida = contUsu.alterar(usuEntrada);
         JOptionPane.showMessageDialog(null, usuSaida.toString());
@@ -53,7 +54,8 @@ public class ManterUsuario {
         String senha = JOptionPane.showInputDialog("Senha");
         String status = JOptionPane.showInputDialog("Status");
         String tipo = JOptionPane.showInputDialog("Tipo");
-        Usuario usuEntrada = new Usuario(login, senha, status, tipo);
+        int id_clientes = Integer.parseInt(JOptionPane.showInputDialog("ID Clientes"));
+        Usuario usuEntrada = new Usuario(login, senha, status, tipo, id_clientes);
         contUsu = new ControllerUsuario();
         Usuario usuSaida = contUsu.inserir(usuEntrada);
         JOptionPane.showMessageDialog(null, usuSaida.toString());

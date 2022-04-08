@@ -1,6 +1,5 @@
 package projetomusica.model.dao;
 
-import projetomusica.model.bean.Instrumentos; 
 import projetomusica.util.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,9 +17,9 @@ public class DaoInstrumentos {
     public DaoInstrumentos() throws SQLException, ClassNotFoundException {
         this.c = new Conexao().getConnection();
     }
-    
+
     public Instrumentos inserir(Instrumentos ins) throws SQLException {
-        String sql = "insert into instrumento (nome, valor, tipo) values (?,?,?)";
+        String sql = "insert into instrumentos (nome, valor, tipo) values (?,?,?)";
 
         // prepared statement para inserção
         PreparedStatement instru = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -38,10 +37,10 @@ public class DaoInstrumentos {
         }
         instru.close();
         return ins;
-    }   
+    }
 
     public Instrumentos buscar(Instrumentos ins) throws SQLException {
-        String sql = "select * from instrumento WHERE id = ?";
+        String sql = "select * from instrumentos WHERE id = ?";
         PreparedStatement instru = this.c.prepareStatement(sql);
         // seta os valores
         instru.setInt(1, ins.getId());
@@ -53,9 +52,8 @@ public class DaoInstrumentos {
             retorno = new Instrumentos(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5));
+                    rs.getDouble(3),
+                    rs.getString(4));
             // adiciona o usu à lista de usus
         }
         instru.close();
@@ -63,7 +61,7 @@ public class DaoInstrumentos {
     }
 
     public Instrumentos alterar(Instrumentos ins) throws SQLException {
-        String sql = "UPDATE instrumento SET nome = ?, valor = ?, tipo = ? WHERE id = ?";
+        String sql = "UPDATE instrumentos SET nome = ?, valor = ?, tipo = ? WHERE id = ?";
         // prepared statement para inserção
         PreparedStatement instru = c.prepareStatement(sql);
         // seta os valores
@@ -79,7 +77,7 @@ public class DaoInstrumentos {
     }
 
     public Instrumentos excluir(Instrumentos ins) throws SQLException {
-        String sql = "delete from intrumento WHERE id = ?";
+        String sql = "delete from instrumentos WHERE id = ?";
         // prepared statement para inserção
         PreparedStatement instru = c.prepareStatement(sql);
         // seta os valores
@@ -96,21 +94,21 @@ public class DaoInstrumentos {
         //Trocar usuarios para instrumentos
         List<Instrumentos> inst = new ArrayList<>();
 
-        String sql = "select * from usuarios where login like ?";
+        String sql = "select * from instrumentos where nome like ?";
         PreparedStatement instru = this.c.prepareStatement(sql);
         // seta os valores
-        instru.setString(1, "%" + insEnt.getLogin() + "%");
+        //Nome para Instrumentos
+        instru.setString(1, "%" + insEnt.getNome() + "%");
 
         ResultSet rs = instru.executeQuery();
 
         while (rs.next()) {
-            
+
             Instrumentos ins = new Instrumentos(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5)
+                    rs.getDouble(3),
+                    rs.getString(4)
             );
             // adiciona o usu à lista de usus
             inst.add(ins);
@@ -120,35 +118,5 @@ public class DaoInstrumentos {
         instru.close();
         return inst;
     }
-
-    public Instrumentos validar(Instrumentos ins) throws SQLException {
-        // cria o select para ser executado no banco de dados 
-        String sql = "select * from usuarios WHERE login = ? AND senha = ?";
-        // prepared statement para seleção
-        PreparedStatement instru = this.c.prepareStatement(sql);
-        // seta os valores
-        instru.setString(1, (String) ins.getLogin());
-        instru.setString(2, (String) ins.getSenha());
-        // executa
-        ResultSet rs = instru.executeQuery();
-        // percorrendo o rs
-        Instrumentos retorno = null;
-        while (rs.next()) {
-            // criando o objeto Usuario
-            retorno = new Instrumentos(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5));
-            // adiciona o usu à lista de usus
-        }
-        instru.close();
-        System.out.println("Usuario: " + retorno.toString());
-
-        return retorno;
-    }
-
-    
 
 }

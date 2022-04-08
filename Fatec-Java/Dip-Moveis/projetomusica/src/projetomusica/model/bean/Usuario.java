@@ -7,6 +7,7 @@ public class Usuario {
     private String senha;
     private String status;
     private String tipo;
+    private int id_clientes; 
 
     public Usuario(int id) {
         this.id = id;
@@ -21,19 +22,21 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario(String login, String senha, String status, String tipo) {
+    public Usuario(String login, String senha, String status, String tipo, int id_clientes) {
         this.login = login;
         this.senha = senha;
         this.status = status;
         this.tipo = tipo;
+        this.id_clientes = id_clientes; 
     }
 
-    public Usuario(int id, String login, String senha, String status, String tipo) {
+    public Usuario(int id, String login, String senha, String status, String tipo, int id_clientes) {
         this.id = id;
         this.login = login;
         this.senha = senha;
         this.status = status;
         this.tipo = tipo;
+        this.id_clientes = id_clientes; 
     }
 
     public int getId() {
@@ -76,6 +79,14 @@ public class Usuario {
         this.tipo = tipo;
     }
 
+    public int getId_clientes() {
+        return id_clientes;
+    }
+
+    public void setId_clientes(int id_clientes) {
+        this.id_clientes = id_clientes;
+    }
+    
     @Override
     public String toString() {
         return "Usuario{" + "id=" + id + ", login=" + login + ", senha=" + senha + ", status=" + status + ", tipo=" + tipo + '}';

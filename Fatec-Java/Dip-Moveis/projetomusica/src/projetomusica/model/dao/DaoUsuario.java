@@ -33,7 +33,9 @@ public class DaoUsuario {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5));
+                    rs.getString(5), 
+                    rs.getInt(6)
+            );
             // adiciona o usu à lista de usus
         }
         stmt.close();
@@ -41,7 +43,7 @@ public class DaoUsuario {
     }
 
     public Usuario alterar(Usuario usu) throws SQLException {
-        String sql = "UPDATE usuarios SET login = ?, senha = ?, status = ?, tipo = ? WHERE id = ?";
+        String sql = "UPDATE usuarios SET login = ?, senha = ?, status = ?, tipo = ?, id_clientes = ? WHERE id = ?";
         // prepared statement para inserção
         PreparedStatement stmt = c.prepareStatement(sql);
         // seta os valores
@@ -49,7 +51,8 @@ public class DaoUsuario {
         stmt.setString(2, usu.getSenha());
         stmt.setString(3, usu.getStatus());
         stmt.setString(4, usu.getTipo());
-        stmt.setInt(5, usu.getId());
+        stmt.setInt(5, usu.getId_clientes());
+        stmt.setInt(6, usu.getId());
 
         // executa
         stmt.execute();
@@ -89,7 +92,8 @@ public class DaoUsuario {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5)
+                    rs.getString(5),
+                    rs.getInt(6)
             );
             // adiciona o usu à lista de usus
             usus.add(usu);
@@ -119,7 +123,9 @@ public class DaoUsuario {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5));
+                    rs.getString(5),
+                    rs.getInt(6)
+            );
             // adiciona o usu à lista de usus
         }
         stmt.close();
@@ -129,7 +135,7 @@ public class DaoUsuario {
     }
 
     public Usuario inserir(Usuario usu) throws SQLException {
-        String sql = "insert into usuarios" + " (login, senha, status, tipo)" + " values (?,?,?,?)";
+        String sql = "insert into usuarios" + " (login, senha, status, tipo, id_clientes)" + " values (?,?,?,?,?)";
 
         // prepared statement para inserção
         PreparedStatement stmt = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -139,6 +145,7 @@ public class DaoUsuario {
         stmt.setString(2, usu.getSenha());
         stmt.setString(3, usu.getStatus());
         stmt.setString(4, usu.getTipo());
+        stmt.setInt(5, usu.getId_clientes());
 
         // executa
         stmt.executeUpdate();
