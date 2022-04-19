@@ -4,6 +4,7 @@ import projetomusica.view.ManterUsuario;
 import projetomusica.view.ManterInstrumentos; 
 import projetomusica.view.ManterClientes; 
 import projetomusica.view.ManterAcessorios; 
+import projetomusica.view.ManterCompras; 
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -18,7 +19,7 @@ public class Projetomusica {
     }
 
     public static void menu() throws SQLException, ClassNotFoundException {
-        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Usuario \n 2 - Cliente \n 3 - Instrumentos \n 4 - Acessórios"));
+        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Usuario \n 2 - Cliente \n 3 - Instrumentos \n 4 - Acessórios \n 5 - Compras"));
         switch (operacao) {
             case 0:
                 int sair = JOptionPane.showConfirmDialog(null, "Deseja Sair");
@@ -38,6 +39,9 @@ public class Projetomusica {
                 break;
             case 4:
                 ManterAcessorios.menu();
+                break;
+            case 5:
+                ManterCompras.menu();
                 break;
             default:        
                 JOptionPane.showMessageDialog(null, "Erro opcao invalida");
