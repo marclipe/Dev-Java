@@ -4,43 +4,31 @@ import javax.swing.JOptionPane;
 
 public class Classes {
 
-    public double N1, N2, N3, media;
+    float n1, n2, n3, media;
 
-    public void Setvalores(double n1, double n2, double n3) {
-        N1 = n1;
-        N2 = n2;
-        N3 = n3;
-    }
-
-    public double GetMedia() {      
-        media = (N1 * 0.35 + N2 * 0.5 + N3 * 0.5);
-        return media;
-    }
-
-    Classes() {
-        N1 = 0;
-        N2 = 0;
-        N3 = 0;
+    public void Setvalores(float a, float b, float c) {
+        n1 = a;
+        n2 = b;
+        n3 = c;
     }
 
     public static void main(String[] args) {
-        double N1, N2, N3;
         try {
-            String nota1 = JOptionPane.showInputDialog("Digite a nota 1: ");
-            String nota2 = JOptionPane.showInputDialog("Digite a nota 2: ");
-            String nota3 = JOptionPane.showInputDialog("Digite a nota 3: ");
-            N1 = Double.parseDouble(nota1);
-            N2 = Double.parseDouble(nota2);
-            N3 = Double.parseDouble(nota3);
-            
-            Main ct = new Main();
-            ct.Setvalores(N1, N2, N3);
-            
-            Classes cs = new Classes();
+            float N1, N2, N3;
+            String v1 = JOptionPane.showInputDialog("Nota1:");
+            String v2 = JOptionPane.showInputDialog("Nota2:");
+            String v3 = JOptionPane.showInputDialog("Nota3:");
+            N1 = Float.parseFloat(v1);
+            N2 = Float.parseFloat(v2);
+            N3 = Float.parseFloat(v3);
+
+            Superior cs = new Superior();
             cs.Setvalores(N1, N2, N3);
-            
-            JOptionPane.showMessageDialog(null, "A média da Classe Superior é = " + cs.GetMedia());
-            JOptionPane.showMessageDialog(null, "A média da Classe Técnica é = " + ct.GetMediaTe());
+            Tecnico ct = new Tecnico();
+            ct.Setvalores(N1, N2, N3);
+
+            JOptionPane.showMessageDialog(null, "A média da Classe Superior é = " + cs.GetSuperior());
+            JOptionPane.showMessageDialog(null, "A média da Classe Técnica é = " + ct.GetTecnico());
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "[ERRO] Digite apenas números!!");
