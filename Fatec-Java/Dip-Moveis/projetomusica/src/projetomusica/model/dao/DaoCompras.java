@@ -38,7 +38,7 @@ public class DaoCompras {
     }
 
     public Compras buscar(Compras ins) throws SQLException {
-        String sql = "select * from compras WHERE id = ?";
+        String sql = "select * from compras WHERE id_compras = ?";
         PreparedStatement COMP = this.c.prepareStatement(sql);
         // seta os valores
         COMP.setInt(1, ins.getId());
@@ -58,7 +58,8 @@ public class DaoCompras {
     }
 
     public Compras alterar(Compras comp) throws SQLException {
-        String sql = "UPDATE compras SET valor_total = ?, id_instrumentos = ?, id_clientes = ? WHERE id = ?";
+        System.out.println(comp.getId());
+        String sql = "UPDATE compras SET valor_total = ?, id_instrumentos = ?, id_clientes = ? WHERE id_compras = ?";
         // prepared statement para inserção
         PreparedStatement COMP = c.prepareStatement(sql);
         // seta os valores
@@ -74,7 +75,7 @@ public class DaoCompras {
     }
 
     public Compras excluir(Compras comp) throws SQLException {
-        String sql = "delete from compras WHERE id = ?";
+        String sql = "delete from compras WHERE id_compras = ?";
         // prepared statement para inserção
         PreparedStatement COMP = c.prepareStatement(sql);
         // seta os valores

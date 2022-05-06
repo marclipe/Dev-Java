@@ -58,17 +58,6 @@ public class ManterInstrumentos {
         JOptionPane.showMessageDialog(null, instSaida.toString());
     }
 
-    //valida só no usuario
-    /*public static boolean valida() throws SQLException, ClassNotFoundException {
-        boolean validado = false;
-        String login = JOptionPane.showInputDialog("Login");
-        String senha = JOptionPane.showInputDialog("Senha");
-        Instrumentos instEntrada = new Instrumentos(login, senha);
-        contIns = new ControllerInstrumentos();
-        validado = contIns.validar(instEntrada);
-        JOptionPane.showMessageDialog(null, "Usuario = " + validado);
-        return validado;
-    }*/
     public static void menu() throws SQLException, ClassNotFoundException {
         int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Inserir \n 2 - Alterar \n 3 - Excluir \n 4 - Buscar \n 5 - Listar"));
         switch (operacao) {
