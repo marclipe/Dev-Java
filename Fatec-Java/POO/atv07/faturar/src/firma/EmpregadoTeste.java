@@ -8,7 +8,7 @@ public class EmpregadoTeste {
     double salarioAnual;
     double resultado;
 
-    public EmpregadoTeste(String primeiroNome, String sobrenome, double salarioMensal) {
+    public EmpregadoTeste(String primeiroNome, String sobrenome, double salarioMensal, double salarioAnual) {
         this.primeiroNome = primeiroNome;
         this.sobrenome = sobrenome;
         if (salarioMensal < 0) {
@@ -58,7 +58,7 @@ public class EmpregadoTeste {
     }
 
     public double GetEmpregadoTeste() {
-        resultado = (10 / 100) + salarioAnual;
-        return resultado;
+        salarioAnual = 10  + salarioMensal;
+        return salarioAnual;
     }
 }
