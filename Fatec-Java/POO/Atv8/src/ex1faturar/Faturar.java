@@ -1,4 +1,4 @@
-package faturar;
+package ex1faturar;
 
 import javax.swing.JOptionPane;
 

@@ -1,4 +1,4 @@
-package firma;
+package ex2firma;
 
 public class EmpregadoTeste {
 
