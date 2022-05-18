@@ -21,6 +21,7 @@ public class converterMoeda {
     String sinal;
     String veuro;
     JButton convert;
+    ButtonGroup moeda; 
 
     public static void main(String[] args) {
         new converterMoeda().montaTela();
@@ -74,6 +75,11 @@ public class converterMoeda {
         convert = new JButton("converter");
 
         painelPrincipal.add(convert);
+        
+        moeda = new ButtonGroup(); 
+        moeda.add(euro);
+        moeda.add(dolar);
+        moeda.add(libra);
 
 //painelbotoes
         painelBOTOES = new JPanel();
