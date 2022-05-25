@@ -39,6 +39,14 @@ public class Usuario {
         this.id_clientes = id_clientes; 
     }
 
+    public Usuario(String login, String senha, String status, String tipo) {
+        this.login = login;
+        this.senha = senha;
+        this.status = status;
+        this.tipo = tipo;
+    }
+    
+
     public int getId() {
         return id;
     }
