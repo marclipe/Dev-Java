@@ -18,6 +18,16 @@ public class ControllerCompras {
         daoCOMP = new DaoCompras();
         return daoCOMP.alterar(comp);
     }
+    
+    public List<Compras> listar(Compras comp) throws SQLException, ClassNotFoundException, Exception {
+        daoCOMP = new DaoCompras();
+        List<Compras> compras = daoCOMP.listar(comp);
+        
+        if(compras == null) {
+            throw new Exception("Não tem compras cadastrados!");
+        }
+        return compras;  
+    }
 
     public Compras buscar(Compras comp) throws SQLException, ClassNotFoundException {
         daoCOMP = new DaoCompras();

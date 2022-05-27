@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import projetomusica.model.bean.Compras;
 
 public class DaoCompras {
@@ -87,5 +89,35 @@ public class DaoCompras {
         return comp;
     }
 
+    public List<Compras> listar(Compras compEntrada) throws SQLException {
+        // usus: array armazena a lista de registros
+
+        List<Compras> listacomp = new ArrayList<>();
+        
+        String sql = "select * from compras where nome like ?";
+        PreparedStatement comp_ = this.c.prepareStatement(sql);
+        // seta os valores
+        comp_.setString(1,"%" + compEntrada.getId()+ "%");
+        
+        ResultSet rs = comp_.executeQuery();
+        
+        while (rs.next()) {      
+            // criando o objeto Usuario
+            Compras compr = new Compras(
+                rs.getInt(1),
+                rs.getDouble(2),
+                rs.getInt(3),
+                rs.getInt(4)
+            );
+            // adiciona o usu à lista de usus
+            listacomp.add(compr);
+        }
+        
+        rs.close();
+        comp_.close();
+        
+        return listacomp;
+
+    }
 }
 

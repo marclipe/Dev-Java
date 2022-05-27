@@ -3,6 +3,7 @@ package projetomusica.view;
 import javax.swing.JOptionPane;
 import projetomusica.controller.ControllerCompras;
 import java.sql.SQLException;
+import java.util.List;
 import projetomusica.model.bean.Compras;
 
 public class ManterCompras {
@@ -29,6 +30,21 @@ public class ManterCompras {
         Compras compSaida = contCOMP.alterar(compEntrada);
         JOptionPane.showMessageDialog(null, compSaida.toString());
     }
+    
+    //listar compras 
+    public static void listar() throws SQLException, ClassNotFoundException {
+        try {
+        String ID = JOptionPane.showInputDialog("ID");
+        Compras compEntrada = new Compras (Integer.parseInt(ID));
+        contCOMP = new ControllerCompras();
+        List<Compras> listaCOMPSaida = contCOMP.listar(compEntrada);
+        for(Compras comp_ : listaCOMPSaida) {
+            JOptionPane.showMessageDialog(null, comp_.toString());
+        }
+        } catch ( Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public static void buscar() throws SQLException, ClassNotFoundException {
         int id = Integer.parseInt(JOptionPane.showInputDialog("ID"));
@@ -47,7 +63,7 @@ public class ManterCompras {
     }
 
     public static void menu() throws SQLException, ClassNotFoundException {
-        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Inserir \n 2 - Alterar \n 3 - Excluir \n 4 - Buscar"));
+        int operacao = Integer.parseInt(JOptionPane.showInputDialog("0 - Sair \n 1 - Inserir \n 2 - Alterar \n 3 - Excluir \n 4 - Buscar \n 5 - Listar"));
         switch (operacao) {
             case 0:
                 int sair = JOptionPane.showConfirmDialog(null, "Deseja Sair");
@@ -68,6 +84,9 @@ public class ManterCompras {
             case 4:
                 buscar();
                 break;
+            case 5:
+               listar();
+               break;
             default:
                 JOptionPane.showMessageDialog(null, "Erro opcao invalida");
                 menu();
