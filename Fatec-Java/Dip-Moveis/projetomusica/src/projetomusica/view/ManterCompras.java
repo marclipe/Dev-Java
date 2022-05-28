@@ -14,7 +14,8 @@ public class ManterCompras {
         double valor_total = Double.parseDouble(JOptionPane.showInputDialog("Valor Total"));
         int id_instrumentos = Integer.parseInt(JOptionPane.showInputDialog("ID Instrumentos"));
         int id_clientes = Integer.parseInt(JOptionPane.showInputDialog("ID Clientes"));
-        Compras compEntrada = new Compras(valor_total, id_instrumentos, id_clientes);
+        String nome_clientes = JOptionPane.showInputDialog("Nome CLIENTE"); 
+        Compras compEntrada = new Compras(valor_total, id_instrumentos, id_clientes, nome_clientes);
         contCOMP = new ControllerCompras();
         Compras compSaida = contCOMP.inserir(compEntrada);
         JOptionPane.showMessageDialog(null, compSaida.toString());
@@ -25,7 +26,8 @@ public class ManterCompras {
         double valor_total = Double.parseDouble(JOptionPane.showInputDialog("Valor Total"));
         int id_instrumentos = Integer.parseInt(JOptionPane.showInputDialog("ID Instrumentos"));
         int id_clientes = Integer.parseInt(JOptionPane.showInputDialog("ID Clientes"));
-        Compras compEntrada = new Compras(id, valor_total, id_instrumentos, id_clientes);
+        String nome_clientes = JOptionPane.showInputDialog("Nome CLIENTE"); 
+        Compras compEntrada = new Compras(id, valor_total, id_instrumentos, id_clientes,nome_clientes);
         contCOMP = new ControllerCompras();
         Compras compSaida = contCOMP.alterar(compEntrada);
         JOptionPane.showMessageDialog(null, compSaida.toString());
@@ -34,8 +36,8 @@ public class ManterCompras {
     //listar compras 
     public static void listar() throws SQLException, ClassNotFoundException {
         try {
-        String ID = JOptionPane.showInputDialog("ID");
-        Compras compEntrada = new Compras (Integer.parseInt(ID));
+        String nome_clientes = JOptionPane.showInputDialog("Nome CLIENTE"); 
+        Compras compEntrada = new Compras(nome_clientes);
         contCOMP = new ControllerCompras();
         List<Compras> listaCOMPSaida = contCOMP.listar(compEntrada);
         for(Compras comp_ : listaCOMPSaida) {

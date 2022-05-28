@@ -19,7 +19,7 @@ public class DaoCompras {
     }
 
     public Compras inserir(Compras ins) throws SQLException {
-        String sql = "insert into compras (valor_total, id_instrumentos, id_clientes) values (?,?,?)";
+        String sql = "insert into compras (valor_total, id_instrumentos, id_clientes, nome_clientes) values (?,?,?,?)";
 
         // prepared statement para inserção
         PreparedStatement COMP = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -28,6 +28,7 @@ public class DaoCompras {
         COMP.setDouble(1, ins.getValor_total());
         COMP.setInt(2, ins.getId_instrumentos());
         COMP.setInt(3, ins.getId_clientes());
+        COMP.setString(4, ins.getNome_clientes());
 
         // executa
         COMP.executeUpdate();
@@ -52,7 +53,8 @@ public class DaoCompras {
                     rs.getInt(1),
                     rs.getDouble(2),
                     rs.getInt(3),
-                    rs.getInt(4)
+                    rs.getInt(4),
+                    rs.getString(5)
             );
         }
         COMP.close();
@@ -61,14 +63,15 @@ public class DaoCompras {
 
     public Compras alterar(Compras comp) throws SQLException {
         System.out.println(comp.getId());
-        String sql = "UPDATE compras SET valor_total = ?, id_instrumentos = ?, id_clientes = ? WHERE id_compras = ?";
+        String sql = "UPDATE compras SET valor_total = ?, id_instrumentos = ?, id_clientes = ?, nome_clientes = ? WHERE id_compras = ?";
         // prepared statement para inserção
         PreparedStatement COMP = c.prepareStatement(sql);
         // seta os valores
         COMP.setDouble(1, comp.getValor_total());
         COMP.setInt(2, comp.getId_instrumentos());
         COMP.setInt(3, comp.getId_clientes());
-        COMP.setInt(4, comp.getId());
+        COMP.setString(4, comp.getNome_clientes());
+        COMP.setInt(5, comp.getId());
 
         // executa
         COMP.execute();
@@ -94,10 +97,10 @@ public class DaoCompras {
 
         List<Compras> listacomp = new ArrayList<>();
         
-        String sql = "select * from compras where nome like ?";
+        String sql = "select * from compras where nome_clientes like ?";
         PreparedStatement comp_ = this.c.prepareStatement(sql);
         // seta os valores
-        comp_.setString(1,"%" + compEntrada.getId()+ "%");
+        comp_.setString(1,"%" + compEntrada.getNome_clientes()+ "%");
         
         ResultSet rs = comp_.executeQuery();
         
@@ -107,7 +110,8 @@ public class DaoCompras {
                 rs.getInt(1),
                 rs.getDouble(2),
                 rs.getInt(3),
-                rs.getInt(4)
+                rs.getInt(4), 
+                rs.getString(5)
             );
             // adiciona o usu à lista de usus
             listacomp.add(compr);
