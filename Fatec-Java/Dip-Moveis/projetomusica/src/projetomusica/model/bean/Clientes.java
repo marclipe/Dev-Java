@@ -30,7 +30,8 @@ public class Clientes {
         this.produto = produto;
         this.email = email;
     }
-
+    
+    
     public String getCpf() {
         return cpf;
     }

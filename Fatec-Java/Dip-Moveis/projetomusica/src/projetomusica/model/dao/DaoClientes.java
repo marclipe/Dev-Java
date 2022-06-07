@@ -79,7 +79,7 @@ public class DaoClientes {
     }
 
     public Clientes alterar(Clientes clEntrada) throws SQLException {
-        String sql = "UPDATE clientes SET nome = ?, cpf = ?, produtos = ?, email = ? WHERE id = ?";
+        String sql = "UPDATE clientes SET nome = ?, cpf = ?, produto = ?, email = ? WHERE id = ?";
         // prepared statement para inserção
         PreparedStatement cli = c.prepareStatement(sql);
         // seta os valores
